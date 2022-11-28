@@ -1,0 +1,66 @@
+warning: unused imports: `OpenOptions`, `SeekFrom`, `Seek`
+ --> src/main.rs:4:16
+  |
+4 |     fs::{File, OpenOptions},
+  |                ^^^^^^^^^^^
+5 |     io::{BufRead, BufReader, Seek, SeekFrom, Write},
+  |                              ^^^^  ^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` on by default
+
+warning: unreachable expression
+   --> src/main.rs:173:21
+    |
+171 |                       continue;
+    |                       -------- any code following this expression is unreachable
+172 |
+173 | /                     if Path::exists(Path::new(&format!("{}/{}.md", dir, potential_match))) {
+174 | |                         println!(
+175 | |                             "{potential_match} exists, line from {file_format}, full line: {line}"
+176 | |                         );
+...   |
+201 | |                         }
+202 | |                     }
+    | |_____________________^ unreachable expression
+    |
+    = note: `#[warn(unreachable_code)]` on by default
+
+warning: unused import: `Write`
+ --> src/main.rs:5:46
+  |
+5 |     io::{BufRead, BufReader, Seek, SeekFrom, Write},
+  |                                              ^^^^^
+
+warning: unused variable: `lines_to_replace`
+   --> src/main.rs:159:21
+    |
+159 |             let mut lines_to_replace = Vec::new();
+    |                     ^^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_lines_to_replace`
+    |
+    = note: `#[warn(unused_variables)]` on by default
+
+warning: unused variable: `i`
+   --> src/main.rs:162:18
+    |
+162 |             for (i, line) in reader.lines().enumerate().map(|(i, l)| (i, l.unwrap())) {
+    |                  ^ help: if this is intentional, prefix it with an underscore: `_i`
+
+warning: unused variable: `potential_match`
+   --> src/main.rs:164:25
+    |
+164 |                     let potential_match: &str = line
+    |                         ^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_potential_match`
+
+warning: variable does not need to be mutable
+   --> src/main.rs:159:17
+    |
+159 |             let mut lines_to_replace = Vec::new();
+    |                 ----^^^^^^^^^^^^^^^^
+    |                 |
+    |                 help: remove this `mut`
+    |
+    = note: `#[warn(unused_mut)]` on by default
+
+warning: `update-dates` (bin "update-dates") generated 7 warnings
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/update-dates log.txt`
