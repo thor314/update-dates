@@ -1,4 +1,5 @@
 //! Replace broken links to prior files with existing links
+//! This binary demonstrates working with time, and the filesystem, though is probably more messy than worth using as reference.
 use std::{
     fmt::Display,
     fs::{self, File},
